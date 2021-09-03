@@ -33,7 +33,8 @@ val mainScenario = Scenario {
         action {
             reactions.sayRandom(
                 "See you soon!",
-                "Bye-bye!"
+                "Bye-bye!",
+                "Пока-пока"
             )
             reactions.image("https://media.giphy.com/media/EE185t7OeMbTy/source.gif")
         }
