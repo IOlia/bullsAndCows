@@ -33,5 +33,14 @@ val mainScenario = Scenario {
             }
         }
     }
+
+    state("hello") {
+        activators {
+            intent("hello")
+        }
+        action {
+            reactions.say("Приветик")
+        }
+    }
 }
 
