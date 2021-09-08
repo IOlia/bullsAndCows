@@ -1,59 +1,36 @@
 package com.justai.jaicf.template.scenario
 
-import com.justai.jaicf.activator.caila.caila
+//import com.justai.jaicf.activator.caila.caila
 import com.justai.jaicf.builder.Scenario
 
 val mainScenario = Scenario {
     state("start") {
         activators {
             regex("/start")
-            intent("Hello")
-        }
+            regex("/старт")
+         }
         action {
-            reactions.run {
-                image("https://media.giphy.com/media/ICOgUNjpvO0PC/source.gif")
-                sayRandom(
-                    "Hello! How can I help?",
-                    "Hi there! How can I help you?"
-                )
-                buttons(
-                    "Help me!",
-                    "How are you?",
-                    "What is your name?"
-                )
+            reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")
+        }
+    }
+
+        state("letsPlay") {
+            activators {
+                intent("yes")
+            }
+            action {
+                reactions.say("Напомню правила: я загадываю 4-значное число с неповторяющимися цифрами. Твоя задача - угадать его. В ответ я скажу, сколько быков (сколько цифр ты угадал вплоть до позиции) и сколько коров (цифр без совпадения позиций). Например: я загадал число 3219, ты пробуешь отгадать и называешь 2310. Это будет один бык (цифра 1 угадана с позицией) и две коровы (цифры 2 и 3 угаданы без совпадения позиций). Если тебе надоест играть, просто скажи Стоп. Итак, я загадал число. Попробуй отгадать?!")
+            }
+
+        }
+
+        state("dontWantToPlay") {
+            activators {
+                intent("no")
+            }
+            action {
+                reactions.say("Хорошо, может быть, в другой раз.")
             }
         }
-    }
-
-    state("bye") {
-        activators {
-            intent("Bye")
-        }
-
-        action {
-            reactions.sayRandom(
-                "See you soon!",
-                "Bye-bye!",
-                "Пока-пока"
-            )
-            reactions.image("https://media.giphy.com/media/EE185t7OeMbTy/source.gif")
-        }
-    }
-
-    state("smalltalk", noContext = true) {
-        activators {
-            anyIntent()
-        }
-
-        action(caila) {
-            activator.topIntent.answer?.let { reactions.say(it) } ?: reactions.go("/fallback")
-        }
-    }
-
-    fallback {
-        reactions.sayRandom(
-            "Sorry, I didn't get that...",
-            "Sorry, could you repeat please?"
-        )
-    }
 }
+
