@@ -8,11 +8,11 @@ val mainScenario = Scenario {
         activators {
             regex("/start")
             regex("/старт")
-         }
+        }
         action {
             reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")
         }
-    }
+
 
         state("letsPlay") {
             activators {
@@ -32,5 +32,6 @@ val mainScenario = Scenario {
                 reactions.say("Хорошо, может быть, в другой раз.")
             }
         }
+    }
 }
 
