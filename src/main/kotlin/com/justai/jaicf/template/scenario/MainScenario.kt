@@ -25,7 +25,7 @@ val mainScenario = Scenario {
     state("start") {
         activators {
             regex("/start")
-            regex("/старт")
+            regex("старт старт")
         }
         action {
             reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")

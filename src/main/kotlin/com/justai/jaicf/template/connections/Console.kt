@@ -1,7 +1,7 @@
-package com.justai.jaicf.aeroflot.connections
+package com.justai.jaicf.template
 
 import com.justai.jaicf.channel.ConsoleChannel
-import com.justai.jaicf.aeroflot.templateBot
+import com.justai.jaicf.template.templateBot
 
 fun main() {
     ConsoleChannel(templateBot).run()
