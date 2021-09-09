@@ -14,7 +14,7 @@ fun formIntendedNumber() : String{
     var randomNumber: Int
     while (array.size < 4) {
         randomNumber = rand(0, 10)
-        if (array.contains(randomNumber)) {
+        if (!array.contains(randomNumber)) {
             array.add(randomNumber)
         }
     }
