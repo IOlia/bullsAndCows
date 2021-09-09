@@ -24,8 +24,8 @@ fun formIntendedNumber() : String{
 val mainScenario = Scenario {
     state("start") {
         activators {
-            regex("/start")
-            regex("старт старт")
+            regex(".start")
+            regex(".старт.")
         }
         action {
             reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")
