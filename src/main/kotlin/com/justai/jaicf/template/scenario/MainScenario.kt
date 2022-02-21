@@ -25,5 +25,6 @@ val mainScenario = Scenario {
         action {
             reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")
         }
+    }
 }
 
