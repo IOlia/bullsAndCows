@@ -17,5 +17,13 @@ val mainScenario = Scenario {
             reactions.say("Привет!")
         }
     }
+
+    state("start") {
+        activators {
+            regex("(start|старт)")
+        }
+        action {
+            reactions.say("Я бот Василий. Умею играть в Быки и коровы. Сыграем?")
+        }
 }
 
